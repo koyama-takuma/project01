@@ -6,7 +6,7 @@ export default function Home() {
     <main className={styles.main}>
       <div className={styles.description}>
         <p>
-          Get started バイ editing&nbsp;
+          Get started editing by 小山巧真&nbsp;
           <code className={styles.code}>src/app/page.tsx</code>
         </p>
         <div>
@@ -58,10 +58,12 @@ export default function Home() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
+          <div style={{color:'red'}}>
+            <h2>
+              Learn <span>-&gt;</span>
+            </h2>
+            <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
+          </div>
         </a>
 
         <a

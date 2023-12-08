@@ -1,105 +1,53 @@
-import Image from 'next/image'
+"use client"
 import styles from './page.module.css'
 import Link from 'next/link'
+import Head from 'next/head'
+import { useRouter } from 'next/navigation'
+//import * from 'next/router'
+import React from 'react'
+import useEffect from 'react'
 
 export default function Home() {
-  return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started editing by 小山巧真&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+    const router = useRouter()
 
-      <div className={styles.grid}>
-        <h2 className={styles.card}>
-          <Link href="/move_link/SSR_link"
-          target="_blank">
-            CreateLink
-          </Link>
-        </h2>
+    /*React.useEffect(() => {
+        if ( router.asPath === '/move_link/about') {
+          router.push('https://www.yahoo.co.jp')
+        }
+        //警告を発生させないための記載
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+      }, [router.asPath])*/
 
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
+    return (
+            <>
+                <Head>
+                    <title>aiueo</title>
+                </Head>
+                <div className={styles.center}>
+                    <h1>
+                        見出し
+                    </h1>
+                </div>
+                    <Link
+                    href='/SSR_redirectLink'
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >
+                        <p>ここにSSRでのリダイレクトリンク</p>
+                    </Link>
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <div style={{color:'red'}}>
-            <h2>
-              Learn <span>-&gt;</span>
-            </h2>
-            <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-          </div>
-        </a>
+                    <Link
+                    href='/CSR_redirectLink'
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >
+                        <p>ここにCSRでのリダイレクトリンク</p>
+                    </Link>
 
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  )
+                    <button type="button" onClick={() => router.push('/config_redirect')}>
+                        設定ファイルによるリダイレクト
+                    </button>
+            </>
+    )
 }
